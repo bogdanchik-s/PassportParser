@@ -1,5 +1,5 @@
 # Project name: PassportParser / ver: R0.1.0
-# Author: Zakharov Bogdan Sergeevich
+# Author: Zakharov Bogdan Sergeevich [https://github.com/bogdanchik-s]
 # Python version: 3.10.9
 
 import re
@@ -24,7 +24,10 @@ MONTH_NUMBERS = {
 
 def parse_passport_data(passport_data: str, debug: bool = False) -> str:
     # Убираем лишние слова и символы
-    passport_data = re.sub(r'\bПаспорт\b|\bвыдан\b|\bот\b|\bСерия\b|\bНомер\b|\bДата выдачи\b|,', '',passport_data, flags=re.IGNORECASE)
+    passport_data = re.sub(
+        r'\bПаспорт\b|\bвыдан\b|\bот\b|\bСерия\b|\bНомер\b|\bДата выдачи\b|,', '',
+        passport_data, flags=re.IGNORECASE
+    )
 
     # Убираем лишние пробелы между словами и в начале и конце строки
     passport_data = re.sub(r'\s+', ' ', passport_data).strip()
